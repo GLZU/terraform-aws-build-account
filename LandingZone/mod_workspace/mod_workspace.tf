@@ -25,7 +25,7 @@ resource "github_repository" "git_repo" {
   }
 }
 
-resource "tfe_workspace" "test" {
+resource "tfe_workspace" "ws" {
   name         = local.params.tfe.tf_workspace_name
   organization = local.params.tfe.tf_org
   provider     = tfe.tfe1
@@ -41,7 +41,7 @@ resource "tfe_variable" "test" {
   key          = "my_key_name"
   value        = "my_value_name"
   category     = "terraform"
-  workspace_id = tfe_workspace.test.id
+  workspace_id = tfe_workspace.ws.id
   description  = "a useful description"
   provider     = tfe.tfe1
 }
