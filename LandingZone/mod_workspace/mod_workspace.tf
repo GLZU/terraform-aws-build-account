@@ -24,7 +24,7 @@ resource "tfe_workspace" "test" {
   vcs_repo {
      identifier     = "${local.params.git.git_org}/${local.params.git.repo_name}"
 #     branch         = local.params.git.repo_name
-     oauth_token_id =  local.params.git.vcs_oauth_token_id
+     oauth_token_id =  local.params.tfe.vcs_oauth_token_id
   }
 }
 
