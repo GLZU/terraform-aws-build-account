@@ -4,6 +4,14 @@ locals {
 
 }
 
+provider github {
+  alias = "github1"
+}
+
+provider tfe {
+  alias = "tfe1"
+} 
+
 # Add a user to the organization
 resource "github_repository" "git_repo" {
   name         = local.params.git.repo_name
