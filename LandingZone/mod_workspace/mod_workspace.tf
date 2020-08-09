@@ -30,7 +30,7 @@ resource "tfe_workspace" "test" {
   organization = local.params.tfe.tf_org
   provider     = tfe.tfe1
   vcs_repo {
-     identifier     = "${local.params.git.git_org}/${local.params.git.repo_name}"
+     identifier     = "${local.params.git.target_git_org}/${local.params.git.target_repo_name}"
 #     branch         = local.params.git.repo_name
      oauth_token_id =  local.params.tfe.vcs_oauth_token_id
   }
