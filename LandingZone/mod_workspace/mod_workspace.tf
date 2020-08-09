@@ -18,7 +18,7 @@ resource "github_repository" "git_repo" {
 }
 
 resource "tfe_workspace" "test" {
-  name         = local.params.tfe.tf_workspace
+  name         = local.params.tfe.tf_workspace_name
   organization = local.params.tfe.tf_org
   provider     = tfe.tfe1
   vcs_repo {
