@@ -1,13 +1,9 @@
-locals {
-  
+locals {  
   params = var.params
-
 }
-
 provider github {
   alias = "github1"
 }
-
 provider tfe {
   alias = "tfe1"
 } 
