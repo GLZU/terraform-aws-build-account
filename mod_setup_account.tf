@@ -23,7 +23,7 @@ resource "github_repository" "git_repo" {
 
 
 module "workspace" {
-  count = length(var.params.tfe.workspaces)
+  count = length(local.params.tfe.workspaces)
   source "./mod_workspace"
-  params = merge(local.params, {tfe = var.params,tfe.workspace[count.index]})
+  params = merge({"git" = local.params,git }, {"tfe" = local.params.tfe.workspace[count.index]})
 }
