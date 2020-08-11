@@ -33,7 +33,7 @@ resource "tfe_workspace" "ws" {
    depends_on = [github_repository.git_repo]
 }
 
-resource "tfe_variable" "test" {
+resource "tfe_variable" "variable" {
   key          = "my_key_name"
   value        = "my_value_name"
   category     = "terraform"
