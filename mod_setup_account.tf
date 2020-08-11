@@ -20,3 +20,10 @@ resource "github_repository" "git_repo" {
     repository = local.params.git.bootstrap_template.repository
   }
 }
+
+
+module "workspace" {
+  count = length(var.params.tfe.workspaces)
+  source "./mod_workspace"
+  params = merge(local.params, {tfe = var.params,tfe.workspace[count.index]})
+}
