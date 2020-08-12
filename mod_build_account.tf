@@ -14,7 +14,7 @@ resource "github_repository" "git_repo" {
   description  = local.params.git.target_repo_name
   provider     = github.github1
 # private = true
-# Valid templates would be Accuont Creation, Guard
+# Valid templates would be Accuont Creation, Guard 
  template {
     owner      = local.params.git.bootstrap_template.owner
     repository = local.params.git.bootstrap_template.repository
