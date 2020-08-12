@@ -6,6 +6,7 @@ resource "tfe_workspace" "ws" {
   name         = local.params.tfe.tf_workspace_name
   organization = local.params.tfe.tf_org
 #  provider     = tfe.tfe
+   working_directory  =     local.params.tfe.git_path 
   vcs_repo {
      identifier     = "${local.params.git.target_git_org}/${local.params.git.target_repo_name}"
 #     branch         = local.params.git.repo_name
