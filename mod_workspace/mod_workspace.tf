@@ -5,7 +5,7 @@ locals {
 resource "tfe_workspace" "ws" {
   name         = local.params.tfe.tf_workspace_name
   organization = local.params.tfe.tf_org
-  provider     = tfe.tfe1
+  provider     = tfe.tfe
   vcs_repo {
      identifier     = "${local.params.git.target_git_org}/${local.params.git.target_repo_name}"
 #     branch         = local.params.git.repo_name
@@ -20,5 +20,5 @@ resource "tfe_variable" "test" {
   category     = "terraform"
   workspace_id = tfe_workspace.ws.id
   description  = "a useful description"
-  provider     = tfe.tfe1
+  provider     = tfe.tfe
 }
