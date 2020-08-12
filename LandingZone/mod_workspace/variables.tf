@@ -1,3 +1,0 @@
-variable params {
-  type = any
-}
