@@ -29,4 +29,5 @@ module "workspace" {
     tfe = tfe.tfe1
   }
   params = merge({git = local.params.git }, {tfe = local.params.tfe.workspaces[count.index]})
+  depends_on = [github_repository.git_repo]
 }
