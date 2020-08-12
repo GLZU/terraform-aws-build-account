@@ -9,6 +9,15 @@ provider tfe {
 } 
 
 # Add a user to the organization
+module "create_git_repo" {
+  source = "./mod_git"
+  params = local.params
+  providers = {
+    github = github.github1
+  }
+}
+
+/*
 resource "github_repository" "git_repo" {
   name         = local.params.git.target_repo_name
   description  = local.params.git.target_repo_name
@@ -19,7 +28,7 @@ resource "github_repository" "git_repo" {
     owner      = local.params.git.bootstrap_template.owner
     repository = local.params.git.bootstrap_template.repository
   }
-}
+}*/
 
 
 module "workspace" {
@@ -29,5 +38,5 @@ module "workspace" {
     tfe = tfe.tfe1
   }
   params = merge({git = local.params.git }, {tfe = local.params.tfe.workspaces[count.index]})
-  depends_on = [github_repository.git_repo]
+  depends_on = [module.create_git_repo]
 }
