@@ -11,7 +11,7 @@ resource "tfe_workspace" "ws" {
 #     branch         = local.params.git.repo_name
      oauth_token_id =  local.params.tfe.vcs_oauth_token_id
   }
-   depends_on = [github_repository.git_repo]
+  # depends_on = [github_repository.git_repo]
 }
 
 resource "tfe_variable" "test" {
